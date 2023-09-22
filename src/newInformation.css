@@ -1,0 +1,15 @@
+.informace-container {
+  text-align: center;
+  border: 1px solid black;
+  margin: 20px 30px 20px 30px;
+
+  padding: 60px 30px 60px 30px;
+  color: white;
+  background: #2d3e3f;
+}
+
+@media (max-width: 500px) {
+  .informace-container {
+    text-align: justify;
+  }
+}

@@ -1,0 +1,107 @@
+.contact-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  background: #2d3e3f;
+  margin-bottom: 20px;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.contact-box {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-paragraph {
+  font-size: 18px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.fontLabel {
+}
+
+.black-icon-contact {
+  color: #000;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.phonenumber-span-contact {
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.email-span {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.box-phone-contact,
+.box-email-contact {
+  margin: 40px;
+}
+
+.phone-nummer-contact,
+.email-contact {
+  margin: 20px 20px 20px 20px;
+  color: #fff;
+}
+
+.square-box {
+  padding: 5px 10px 5px 10px;
+}
+
+@media (max-width: 970px) {
+  * {
+    margin: 0;
+  }
+
+  .contact-box {
+    display: block;
+    margin: 20px 0px 20px 0;
+  }
+
+  .contact-paragraph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 100px 0px;
+  }
+  .fontLabel {
+    text-align: center;
+  }
+
+  .phone-nummer-contact {
+    margin: 20px 0px 20px 0;
+  }
+
+  .phonenumber-span-contact,
+  .email-span {
+    width: auto;
+    height: auto;
+  }
+
+  .square-box {
+    margin: 5px 0;
+  }
+
+  .contact-title {
+    text-align: center;
+    margin-top: 40px;
+  }
+}

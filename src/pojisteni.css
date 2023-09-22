@@ -1,0 +1,41 @@
+.insurance-police-holder-container{
+    display: flex;
+    margin-bottom: 40px;
+    flex-direction: column;
+    background: #2d3e3f;
+    padding-bottom: 200px;
+
+}
+
+.insurance-police-holder-box{
+    border: 1px solid black;
+    padding: 10px 0;
+    color: white;
+
+}
+
+.insurance-police-holder-title{
+    text-align: center;
+    color: #fff;
+
+}
+
+.insurance-police-holder-description{
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.insurance-police-holder-nav{
+    text-decoration: none;
+    color: white;
+}
+
+.insurance-police-holder-nav:hover{
+    text-decoration: underline;
+}
+
+.insurance-police-holder-nav:active{
+    text-decoration: underline;
+    transform: scale(0.96);
+}
