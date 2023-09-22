@@ -166,7 +166,8 @@ select {
   cursor: pointer;
 }
 
-@media (max-width: 4.6875rem) { /* 750px */
+@media (max-width: 4.6875rem) {
+  /* 750px */
   .container {
     width: 90%;
     padding: 0.625rem; /* 10px */
@@ -193,7 +194,8 @@ select {
   }
 }
 
-@media (max-width: 3.125rem) { /* 500px */
+@media (max-width: 3.125rem) {
+  /* 500px */
   .container {
     background: #2d3e3f;
     width: 21.875rem; /* 350px */
@@ -243,14 +245,142 @@ select {
   }
 
   .textBox {
-    height: 2.3125rem; 
-    width: 11.8125rem; 
+    height: 2.3125rem;
+    width: 11.8125rem;
     line-height: 5vw;
   }
 
   .select-gender {
     margin-left: 0;
-    width: 12.3125rem; 
-    height: 2.5rem; 
+    width: 12.3125rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    background: #2d3e3f;
+    width: 21.875rem;
+    height: auto;
+    padding-bottom: 1.25rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    margin-top: 1.25rem;
+    margin-bottom: 5rem;
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .iconBox {
+    height: auto;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: #a2ff00;
+    transition: transform 0.3s;
+  }
+
+  .iconBox:hover {
+    height: auto;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: #a2ff00;
+    transition: transform 0.3s;
+  }
+
+  .textBox:focus {
+    height: 2.1875rem;
+    width: 11.125rem;
+    border: none;
+    padding-left: 1.25rem;
+    transition: transform 0.3s;
+    transform: scale(0.96);
+  }
+
+  .textBox {
+    height: 2.375rem;
+    width: 45vw;
+    line-height: 5vw;
+  }
+
+  .select-gender {
+    margin-left: 0px;
+    width: 12.3125rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    background: #2d3e3f;
+    width: 21.5rem;
+    height: auto;
+    padding-bottom: 1.25rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    margin-top: 1.25rem;
+    margin-bottom: 5rem;
+    padding: 1.25rem 0.625rem 1.25rem 0.625rem;
+    text-transform: uppercase;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .iconBox {
+    height: auto;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: #a2ff00;
+    transition: transform 0.3s;
+  }
+
+  .iconBox:hover {
+    height: auto;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: #a2ff00;
+    transition: transform 0.3s;
+  }
+
+  .textBox:focus {
+    height: 2.1875rem;
+    width: 10.7rem;
+    border: none;
+    padding-left: 1.25rem;
+    transition: transform 0.3s;
+    transform: scale(0.96);
+  }
+
+  .textBox {
+    height: 2.375rem;
+    width: 45vw;
+    line-height: 5vw;
+  }
+
+  .select-gender {
+    margin-left: 0px;
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .select-gender:focus {
+    width: 11.5rem;
   }
 }
