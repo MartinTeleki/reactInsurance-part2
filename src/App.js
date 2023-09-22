@@ -38,7 +38,7 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  console.log(isAdmin);
+  //console.log(isAdmin);
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -49,8 +49,6 @@ export default function App() {
   const [emailList, setEmailList] = useState([]);
   const [passwordList, setPasswordList] = useState([]);
   const [passwordControlList, setPasswordControlList] = useState([]);
-
-  
 
   // console.log(evidenceList);
   // console.log(evidenceList[1]);
@@ -190,7 +188,6 @@ function Main({
   passwordList,
   setPasswordList,
   isAdmin,
-
 }) {
   console.log(isAdmin);
   return (
@@ -214,7 +211,6 @@ function Main({
           />
         </div>
       )}
-      
 
       {currentPage === "login" && (
         <div className="login-margin">
@@ -256,7 +252,6 @@ function Main({
               setEvidenceList={setEvidenceList}
             />
           </div>
-          
         )}
       </div>
       {currentPage === "pojisteni" && (
@@ -264,6 +259,42 @@ function Main({
           <Pojisteni changePage={changePage} />
         </div>
       )}
+
+      {isLoggedIn && (
+        <div className="">
+          <UserInformation loginData={loginData} evidenceList={evidenceList} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function UserInformation({ loginData, evidenceList }) {
+  const user = evidenceList.find((person) => person.email === loginData.email);
+  console.log(evidenceList);
+  console.log(user);
+
+  return (
+    <div>
+      <h2>Osobní údaje uživatele {user.firstName}</h2>
+      <p>Jméno: {user.firstName}</p>
+      <p>Příjmení: {user.lastName}</p>
+      <p>Město: {user.city}</p>
+      <p>Heslo: {user.password}</p>
+      <p>Email: {user.email}</p>
+      <p>Pohlaví: {user.gender}</p>
+      <p>Identifikační číslo: {user.id}</p>
+      <p>Kód pojištění: {user.insuranceCode}</p>
+      <p>Číslo pojištění: {user.insuranceNumber} </p>
+      <p>Předmět pojištění: {user.insuranceSubject}</p>
+      <p>Typ pojištění: {user.insuranceType}</p>
+      <p>Roční platba za pojištění: {user.insuredAmount} </p>
+      <p>Telefonní číslo: {user.phoneNumber}</p>
+      <p>
+        Všeobecné podmínky byly splněny : {user.termsAccepted ? "Ano" : "Ne"}
+      </p>
+      <p>Platnost pojištění od: {user.validityFrom}</p>
+      <p>Platnost pojištění do: {user.validityTo}</p>
     </div>
   );
 }
