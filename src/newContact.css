@@ -37,7 +37,6 @@
   margin-right: 5px;
   font-size: 20px;
   cursor: pointer;
-  
 }
 
 .phonenumber-span-contact {
@@ -45,7 +44,6 @@
   height: 40px;
   font-weight: bold;
   margin-left: 5px;
-  
 }
 
 .email-span {
@@ -56,16 +54,12 @@
 .box-phone-contact,
 .box-email-contact {
   margin: 40px;
-  
 }
-
-
 
 .phone-nummer-contact,
 .email-contact {
   margin: 20px 20px 20px 20px;
   color: #fff;
-  
 }
 
 .square-box {
@@ -73,10 +67,10 @@
 }
 
 .email-contact:hover,
-.phone-nummer-contact {
+.phone-nummer-contact:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
-
 
 @media (max-width: 970px) {
   * {
