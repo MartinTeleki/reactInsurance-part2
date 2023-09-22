@@ -9,7 +9,6 @@ import { Footer } from "./Footer";
 import Pojistenci from "./Pojistenci";
 import { Pojisteni } from "./Pojisteni";
 
-
 export default function App() {
   const initialRegistrationInfo = {
     firstName: "",
@@ -37,6 +36,10 @@ export default function App() {
 
   const [userLogin, setUserLogin] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  console.log(isAdmin);
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -115,6 +118,9 @@ export default function App() {
 
     if (isLoggedIn) {
       alert("Úspěšně jste se přihlásili!");
+      if (email === "martinteleki@seznam.cze") {
+        setIsAdmin(true);
+      }
       changePage("evidence");
       setIsLoggedIn(true);
     } else {
@@ -132,6 +138,7 @@ export default function App() {
         loginData={loginData}
         evidenceList={evidenceList}
         setIsLoggedIn={setIsLoggedIn}
+        setIsAdmin={setIsAdmin}
       />
       <Main
         currentPage={currentPage}
@@ -153,6 +160,7 @@ export default function App() {
         setEmailList={setEmailList}
         passwordList={passwordList}
         setPasswordList={setPasswordList}
+        isAdmin={isAdmin}
       />
       <Footer />
     </div>
@@ -178,7 +186,10 @@ function Main({
   setEmailList,
   passwordList,
   setPasswordList,
+  isAdmin,
+
 }) {
+  console.log(isAdmin);
   return (
     <div className="">
       {currentPage === "informace" && (
@@ -235,20 +246,19 @@ function Main({
         </div>
       )}
       <div>
-        {currentPage === "pojistenci" && (
+        {currentPage === "pojistenci" && isAdmin && (
           <div className="">
             <Pojistenci
               evidenceList={evidenceList}
               setEvidenceList={setEvidenceList}
             />
           </div>
+          
         )}
       </div>
       {currentPage === "pojisteni" && (
         <div className="">
-          <Pojisteni
-            changePage={changePage}
-          />
+          <Pojisteni changePage={changePage} />
         </div>
       )}
     </div>

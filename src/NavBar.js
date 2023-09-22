@@ -8,6 +8,7 @@ export function NavBar({
   loginData,
   evidenceList,
   setIsLoggedIn,
+  setIsAdmin,
 }) {
   return (
     <div>
@@ -48,6 +49,7 @@ export function NavBar({
             changePage={changePage}
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
+            setIsAdmin={setIsAdmin}
           />
         </ul>
       </nav>
@@ -158,7 +160,8 @@ function NavUdalosti({ changePage, isLoggedIn }) {
     </div>
   );
 }
-function NavOdhlasit({ changePage, isLoggedIn, setIsLoggedIn }) {
+function NavOdhlasit({ changePage, isLoggedIn, setIsLoggedIn, setIsAdmin }) {
+  // console.log(setIsAdmin);
   return (
     <div>
       {isLoggedIn && (
@@ -169,6 +172,7 @@ function NavOdhlasit({ changePage, isLoggedIn, setIsLoggedIn }) {
             onClick={() => {
               changePage("login");
               setIsLoggedIn(false);
+              setIsAdmin(false);
             }}
           >
             Odhlásit
