@@ -50,6 +50,8 @@ export default function App() {
   const [passwordList, setPasswordList] = useState([]);
   const [passwordControlList, setPasswordControlList] = useState([]);
 
+  
+
   // console.log(evidenceList);
   // console.log(evidenceList[1]);
   // console.log(loginData.email);
@@ -212,7 +214,7 @@ function Main({
           />
         </div>
       )}
-      {/* pak dát vykřičník před isLoggedIn v prvnm řádku */}
+      
 
       {currentPage === "login" && (
         <div className="login-margin">
