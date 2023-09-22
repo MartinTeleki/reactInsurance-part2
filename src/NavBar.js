@@ -11,28 +11,6 @@ export function NavBar({
   setIsAdmin,
   isAdmin,
 }) {
-  const navItems = [
-    { text: "Informace", page: "informace", condition: !isLoggedIn },
-    { text: "Registrace", page: "register", condition: !isLoggedIn },
-    { text: "Login", page: "login", condition: !isLoggedIn },
-    { text: "Evidence", page: "evidence", condition: isAdmin },
-    { text: "Contact", page: "contact", condition: !isLoggedIn },
-    { text: "Pojištěnci", page: "pojistenci", condition: isAdmin },
-    { text: "Pojištění", page: "pojisteni", condition: isLoggedIn },
-    { text: "Udalosti", page: "Udalosti", condition: isLoggedIn },
-    {
-      text: loginData.firstName,
-      page: "login-jmeno",
-      condition: isLoggedIn,
-    },
-  ];
-
-  const handleLogout = () => {
-    changePage("login");
-    setIsLoggedIn(false);
-    setIsAdmin(false);
-  };
-
   return (
     <div>
       <nav className="navbar">
@@ -45,29 +23,191 @@ export function NavBar({
           <div className="bar"></div>
         </div>
         <ul className="nav-links" id="nav-links">
-          {navItems.map(
-            (item, index) =>
-              item.condition && (
-                <li key={index}>
-                  <a
-                    href="#"
-                    alt={item.text}
-                    onClick={() => changePage(item.page)}
-                  >
-                    {item.text}
-                  </a>
-                </li>
-              )
-          )}
-          {isLoggedIn && (
-            <li>
-              <a href="#" alt="Odhlásit" onClick={handleLogout}>
-                Odhlásit
-              </a>
-            </li>
-          )}
+          <NavInformation changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavRegister changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavLogin changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavPojistenci
+            changePage={changePage}
+            isLoggedIn={isLoggedIn}
+            isAdmin={isAdmin}
+          />
+
+          <NavPojisteni changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavUdalosti changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavEvidence
+            changePage={changePage}
+            isLoggedIn={isLoggedIn}
+            isAdmin={isAdmin}
+          />
+
+          <NavContact changePage={changePage} isLoggedIn={isLoggedIn} />
+
+          <NavLoginJmeno
+            changePage={changePage}
+            isLoggedIn={isLoggedIn}
+            loginData={loginData}
+            evidenceList={evidenceList}
+          />
+
+          <NavOdhlasit
+            changePage={changePage}
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            setIsAdmin={setIsAdmin}
+          />
         </ul>
       </nav>
+    </div>
+  );
+}
+function NavInformation({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {!isLoggedIn && (
+        <li>
+          <a href="#" alt="informace" onClick={() => changePage("informace")}>
+            Informace
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavRegister({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {!isLoggedIn && (
+        <li>
+          <a href="#" alt="registrace" onClick={() => changePage("register")}>
+            Registrace
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavLogin({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {!isLoggedIn && (
+        <li>
+          <a href="#" alt="login" onClick={() => changePage("login")}>
+            Login
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavEvidence({ changePage, isLoggedIn, isAdmin }) {
+  return (
+    <div>
+      {isAdmin && (
+        <li>
+          <a href="#" alt="evidence" onClick={() => changePage("evidence")}>
+            Evidence
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavContact({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {!isLoggedIn && (
+        <li>
+          <a href="#" alt="kontakt" onClick={() => changePage("contact")}>
+            Contact
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavPojistenci({ changePage, isAdmin }) {
+  return (
+    <div>
+      {isAdmin && (
+        <li>
+          <a href="#" alt="pojistenci" onClick={() => changePage("pojistenci")}>
+            Pojištěnci
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavPojisteni({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {isLoggedIn && (
+        <li>
+          <a href="#" alt="pojisteni" onClick={() => changePage("pojisteni")}>
+            Pojištění
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavUdalosti({ changePage, isLoggedIn }) {
+  return (
+    <div>
+      {isLoggedIn && (
+        <li>
+          <a href="#" alt="udalosti" onClick={() => changePage("Udalosti")}>
+            Udalosti
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavOdhlasit({ changePage, isLoggedIn, setIsLoggedIn, setIsAdmin }) {
+  // console.log(setIsAdmin);
+  return (
+    <div>
+      {isLoggedIn && (
+        <li>
+          <a
+            href="#"
+            alt="odhlasit"
+            onClick={() => {
+              changePage("login");
+              setIsLoggedIn(false);
+              setIsAdmin(false);
+            }}
+          >
+            Odhlásit
+          </a>
+        </li>
+      )}
+    </div>
+  );
+}
+function NavLoginJmeno({ changePage, isLoggedIn, loginData, evidenceList }) {
+  const email = loginData.email;
+  const person = evidenceList.find((osoba) => osoba.email === email);
+
+  return (
+    <div>
+      {isLoggedIn && (
+        <li>
+          <a
+            href="#"
+            alt="login-jmeno"
+            onClick={() => changePage("login-jmeno")}
+          >
+            {person.firstName}
+          </a>
+        </li>
+      )}
     </div>
   );
 }
