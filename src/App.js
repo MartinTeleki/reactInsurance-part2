@@ -139,6 +139,7 @@ export default function App() {
         evidenceList={evidenceList}
         setIsLoggedIn={setIsLoggedIn}
         setIsAdmin={setIsAdmin}
+        isAdmin={isAdmin}
       />
       <Main
         currentPage={currentPage}
@@ -230,7 +231,7 @@ function Main({
           />
         </div>
       )}
-      {isLoggedIn && currentPage === "evidence" && (
+      {isAdmin && currentPage === "evidence" && (
         <div className="evidence-margin">
           <NewEvidence
             evidenceList={evidenceList}
