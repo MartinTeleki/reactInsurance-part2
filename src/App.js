@@ -58,11 +58,20 @@ export default function App() {
   //console.log(emailList, passwordList, passwordControlList);
   //console.log(isLoggedIn);
 
-  useEffect(() => {
+  const updateLocalStorageData = () => {
     const storedEvidence =
       JSON.parse(localStorage.getItem("evidenceTEST")) || [];
     setEvidenceList(storedEvidence);
     setNumberOfContracts(storedEvidence);
+    console.log(storedEvidence);
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      updateLocalStorageData();
+    }, 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   function toggleMenu() {
@@ -260,7 +269,7 @@ function Main({
         </div>
       )}
 
-      {isLoggedIn && (
+      {currentPage === "login-jmeno" && (
         <div className="">
           <UserInformation loginData={loginData} evidenceList={evidenceList} />
         </div>
